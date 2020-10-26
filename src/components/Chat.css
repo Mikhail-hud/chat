@@ -1,0 +1,100 @@
+
+.users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  width: 30%;
+  background-color: rgb(221, 212, 216);
+  border-radius: 5px 0 0 5px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  align-self:center;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 20px;
+  align-self:center;
+  height: 90vh;
+  width: 70%;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background-color: rgb(226, 223, 222);
+}
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+.message-btn {
+  max-width: 75px;
+  margin: 10px 0;
+  background-color: rgb(161, 166, 207);
+}
+.message-txt {
+  background-color: #fff;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+  margin-top: 15px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+li {
+  color: #000;
+  display: block;
+  font-family: IBM Plex Serif,serif;
+  padding: 8px 0;
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background-color: rgb(219, 230, 221);
+}
+
+li:hover {
+  background-color: rgb(161, 166, 207);
+}
+
+@media (max-width: 700px) { 
+
+  .users {
+    width: 100%;
+    min-height: 10vh;
+    margin: 10px 0 10px 0;
+    height: auto;
+  }
+  
+  .messages {
+    width: 100%;
+    min-height: 70vh;
+    margin-bottom: 10px;
+    height: auto;
+  }
+}
+p {
+    min-height: 30px;
+    min-width: 30px;
+    background-color: #fff;
+    border: 1px solid #f5c9f5;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.message-user {
+  align-self: flex-start;
+  margin-bottom: 5px;
+}

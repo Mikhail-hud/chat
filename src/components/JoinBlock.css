@@ -1,5 +1,9 @@
 
-input {
-  width: 100%;
-  min-width: 300px;
+.join-block {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  width: 90%;
+  max-width: 400px;
 }

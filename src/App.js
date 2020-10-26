@@ -1,18 +1,41 @@
-import React from 'react';
+import React, { useEffect, useReducer } from 'react';
+import socket from './socket'
 import './app.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container, Row} from 'react-bootstrap';
+import reducer from './reducer';
 import JoinBlock from './components/JoinBlock';
+import Chat from './components/Chat';
 
-function App() {
+function App () {
+
+  const  [state, dispath] = useReducer(reducer,  {
+    joined: false,
+    roomId: null,
+    userName: null
+  });
+  const onLogin = (obj) => {
+    dispath({
+      type: 'JOINED',
+      payload: obj,
+    });
+    socket.emit('ROOM:JOIN', obj)
+  }
+  window.socket = socket;
+
+  useEffect (() => {
+    socket.on('ROOM:JOINED', users => {
+      console.log('Новый пользыватель', users)
+    });
+  }, [])
+
 
   return (
-    <Container fluid className='wrapper'>
-      <Row>
-        <JoinBlock/>
-      </Row>
-    </Container>
+    <div className='wrap'>
+      <main className='content'>
+        {!state.joined ? <JoinBlock onLogin={onLogin}/>: <Chat/>}
+      </main>
+    </div>
   );
 }
 
 export default App;
+ 
