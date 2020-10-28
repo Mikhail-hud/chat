@@ -23,10 +23,12 @@ function App() {
     socket.emit("ROOM:JOIN", obj);
     const { data } = await axios.get(`/rooms/${obj.roomId}`);
     setUsers(data.users);
+    dispath({
+      type: 'SET_DATA',
+      payload:data,
+    })
   };
-  window.socket = socket;
-  window.state = state;
-
+ 
   const setUsers = (users) => {
     dispath({
       type: "SET_USERS",

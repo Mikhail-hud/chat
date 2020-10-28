@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Chat.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
@@ -6,6 +6,13 @@ import socket from "../socket";
 
 function Chat({ users, messages, userName, roomId, onAddMessage }) {
   const [messageValue, setMessageValue] = useState("");
+  const messagesRef = useRef(null);
+
+  useEffect(() => {
+    messagesRef.current.scrollTo(0, 99999)
+    
+  }, [messages]);
+
 
   const onSendMessage = () => {
     socket.emit("ROOM:NEW_MESSAGE", {
@@ -31,9 +38,9 @@ function Chat({ users, messages, userName, roomId, onAddMessage }) {
         </div>
       </section>
       <section className="messages">
-        <aside className="messages-body">
-          {messages.map((message) => (
-            <div className="message mt-3">
+        <aside ref={messagesRef} className="messages-body">
+          {messages.map((message, index) => (
+            <div key={message + index} className="message mt-3">
               <p>{message.text}</p>
               <div className="message-user">
                 <span>{message.userName}</span>
