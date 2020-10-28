@@ -16,6 +16,7 @@ body {
 
 h1,h2,h3,h4,h5,h6, a, p, span, button, input, i {
   font-family:IBM Plex Serif,serif;
+  text-align: center;
 
 }
 code {

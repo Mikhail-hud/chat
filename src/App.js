@@ -1,53 +1,58 @@
-import React, { useEffect, useReducer } from 'react';
-import socket from './socket'
-import './app.css'
-import reducer from './reducer';
-import JoinBlock from './components/JoinBlock';
-import Chat from './components/Chat';
-import axios from 'axios';
+import React, { useEffect, useReducer } from "react";
+import socket from "./socket";
+import "./app.css";
+import reducer from "./reducer";
+import JoinBlock from "./components/JoinBlock";
+import Chat from "./components/Chat";
+import axios from "axios";
 
-function App () {
-
-  const  [state, dispath] = useReducer(reducer,  {
+function App() {
+  const [state, dispath] = useReducer(reducer, {
     joined: false,
     roomId: null,
     userName: null,
-    users: [],
     messages: [],
-
+    users: [],
+    
   });
   const onLogin = async (obj) => {
     dispath({
-      type: 'JOINED',
+      type: "JOINED",
       payload: obj,
     });
-    socket.emit('ROOM:JOIN', obj);
-    const {data} = await axios.get(`/rooms/${obj.roomId}`);
+    socket.emit("ROOM:JOIN", obj);
+    const { data } = await axios.get(`/rooms/${obj.roomId}`);
     setUsers(data.users);
-  }
+  };
   window.socket = socket;
   window.state = state;
 
   const setUsers = (users) => {
     dispath({
-      type:'SET_USERS',
-      payload:users,
-    })
+      type: "SET_USERS",
+      payload: users,
+    });
+  };
+
+  const addMessage = (message) => {
+    dispath({
+      type: "MEW_MESSAGE",
+      payload: message,
+    });
   }
 
-  useEffect (() => {
-    socket.on('ROOM:SET_USERS', setUsers);
+  useEffect(() => {
+    socket.on("ROOM:SET_USERS", setUsers);
+    socket.on("ROOM:NEW_MESSAGE", addMessage);
   }, []);
 
-
   return (
-    <div className='wrap'>
-      <main className='content'>
-        {!state.joined ? <JoinBlock onLogin={onLogin}/>: <Chat {...state} />}
+    <div className="wrap">
+      <main className="content">
+        {!state.joined ? <JoinBlock onLogin={onLogin} /> : <Chat {...state} onAddMessage={addMessage} />}
       </main>
     </div>
   );
 }
 
 export default App;
- 
