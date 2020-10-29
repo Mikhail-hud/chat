@@ -9,8 +9,7 @@ function Chat({ users, messages, userName, roomId, onAddMessage }) {
   const messagesRef = useRef(null);
 
   useEffect(() => {
-    messagesRef.current.scrollTo(0, 99999)
-    
+    messagesRef.current.scrollTo(0, messagesRef.current.scrollHeight)
   }, [messages]);
 
 
@@ -23,6 +22,7 @@ function Chat({ users, messages, userName, roomId, onAddMessage }) {
     onAddMessage({userName, text: messageValue})
     setMessageValue("");
   };
+
   return (
     <>
       <section className="users">
@@ -38,11 +38,11 @@ function Chat({ users, messages, userName, roomId, onAddMessage }) {
         </div>
       </section>
       <section className="messages">
-        <aside ref={messagesRef} className="messages-body">
+        <aside ref={messagesRef} className='messages-body'>
           {messages.map((message, index) => (
-            <div key={message + index} className="message mt-3">
-              <p>{message.text}</p>
-              <div className="message-user">
+            <div key={message + index} className={message.userName === userName ? 'message-my' : 'message mt-3'}>
+                <p className={message.userName === userName ? 'my' : ''} >{message.text}</p>
+              <div className={message.userName == userName ? 'message-user-my' : ''}>
                 <span>{message.userName}</span>
               </div>
             </div>

@@ -15,6 +15,7 @@ function App() {
     users: [],
     
   });
+  window.state = state;
   const onLogin = async (obj) => {
     dispath({
       type: "JOINED",

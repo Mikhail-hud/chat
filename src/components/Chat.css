@@ -22,18 +22,14 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   background-color: rgb(226, 223, 222);
 }
-.message {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+
 form {
   display: flex;
   flex-direction: column;
   flex:1;
 }
 .messages-body {
-  flex: 66;
+  flex: 3;
   overflow: auto;
   height: calc(100% - 144px);
   margin: 10px 0;
@@ -97,11 +93,36 @@ p {
     background-color: #fff;
     border: 1px solid #f5c9f5;
     border-radius: 10px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
+    box-shadow: 5px 6px 9px 2px rgba(202, 38, 120, 0.2);
     padding: 10px;
     margin-bottom: 5px;
 }
+
+.my {
+  min-height: 30px;
+  min-width: 30px;
+  background-color: #fff;
+  border: 1px solid #8ce58c;
+  border-radius: 10px;
+  box-shadow: -5px 6px 9px 2px rgba(17, 138, 47, 0.2);
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.message-my{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 .message-user {
   align-self: flex-start;
+  margin-bottom: 5px;
+}
+.message-user-my {
+  align-self: flex-end;
   margin-bottom: 5px;
 }
