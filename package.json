@@ -28,7 +28,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "http://localhost:9999",
+  "proxy": "https://chat-bym.herokuapp.com/",
   "browserslist": {
     "production": [
       ">0.2%",

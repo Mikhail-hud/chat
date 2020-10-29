@@ -42,7 +42,7 @@ function Chat({ users, messages, userName, roomId, onAddMessage }) {
           {messages.map((message, index) => (
             <div key={message + index} className={message.userName === userName ? 'message-my' : 'message mt-3'}>
                 <p className={message.userName === userName ? 'my' : ''} >{message.text}</p>
-              <div className={message.userName == userName ? 'message-user-my' : ''}>
+              <div className={message.userName === userName ? 'message-user-my' : ''}>
                 <span>{message.userName}</span>
               </div>
             </div>

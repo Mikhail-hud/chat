@@ -1,4 +1,8 @@
 import io from 'socket.io-client';
-const socket = io();
+
+const ENDPOINT = 'https://chat-bym.herokuapp.com/';
+const socket = io(ENDPOINT);
+
+
 
 export default socket;

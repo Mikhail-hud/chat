@@ -18,7 +18,7 @@ function JoinBlock({onLogin}) {
       userName
     };
     setLoading(true);
-    await axios.post('/rooms', obj);
+    await axios.post('https://chat-bym.herokuapp.com/rooms', obj);
     onLogin(obj);
   }
 

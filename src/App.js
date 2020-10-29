@@ -6,6 +6,7 @@ import JoinBlock from "./components/JoinBlock";
 import Chat from "./components/Chat";
 import axios from "axios";
 
+
 function App() {
   const [state, dispath] = useReducer(reducer, {
     joined: false,
@@ -22,7 +23,7 @@ function App() {
       payload: obj,
     });
     socket.emit("ROOM:JOIN", obj);
-    const { data } = await axios.get(`/rooms/${obj.roomId}`);
+    const { data } = await axios.get(`https://chat-bym.herokuapp.com/rooms/${obj.roomId}`);
     setUsers(data.users);
     dispath({
       type: 'SET_DATA',
