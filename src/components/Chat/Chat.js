@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Chat.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
-import socket from "../socket";
+import socket from "../../common/socket";
 
 function Chat({ users, messages, userName, roomId, onAddMessage }) {
   const [messageValue, setMessageValue] = useState("");

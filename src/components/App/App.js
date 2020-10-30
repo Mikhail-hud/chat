@@ -1,9 +1,9 @@
 import React, { useEffect, useReducer } from "react";
-import socket from "./socket";
+import socket from "../../common/socket";
 import "./app.css";
-import reducer from "./reducer";
-import JoinBlock from "./components/JoinBlock";
-import Chat from "./components/Chat";
+import reducer from "../../reducer/reducer";
+import JoinBlock from "../JoinBlock/JoinBlock";
+import Chat from "../Chat/Chat";
 import axios from "axios";
 
 
