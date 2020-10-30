@@ -32,7 +32,7 @@ function Chat({ users, messages, userName, roomId, onAddMessage }) {
           <h3 className="mt-3">Online ({users.length}):</h3>
           <ul>
             {users.map((name, index) => (
-              <li key={name + index}>{name}</li>
+              <span key={name + index} className="material-icons"> person_add_alt_1 <li>{name}</li> </span>
             ))}
           </ul>
         </div>

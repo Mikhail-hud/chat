@@ -7,7 +7,6 @@
   width: 30%;
   background-color: rgb(221, 212, 216);
   border-radius: 5px 0 0 5px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   align-self:center;
 }
 
@@ -29,7 +28,7 @@ form {
   flex:1;
 }
 .messages-body {
-  flex: 3;
+  flex: 4;
   overflow: auto;
   height: calc(100% - 144px);
   margin: 10px 0;
@@ -42,6 +41,21 @@ form {
 }
 .message-txt {
   background-color: #fff;
+  height: 60px;
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 16px 0px 16px 0px;
+  border-bottom: 3px solid #DF8E00;
+  color: #313131;
+  font-size: 20px;
+  font-weight: 300;
+  transition: 0.2s ease-out;
+}
+.message-txt:focus {
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 ul {
@@ -51,7 +65,6 @@ ul {
   width: auto;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
 }
 
 li {
@@ -62,14 +75,12 @@ li {
   margin: 10px auto;
   width: 80%;
   text-align: center;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  border-radius: 10px;
+  border-radius: 15px 0px 15px 0px;
   background-color: rgb(219, 230, 221);
+  font-size: 18px;
+  margin-left: 10px;
 }
 
-li:hover {
-  background-color: rgb(161, 166, 207);
-}
 
 @media (max-width: 700px) { 
 
@@ -77,36 +88,38 @@ li:hover {
     width: 100%;
     min-height: 10vh;
     margin: 10px 0 10px 0;
-    height: auto;
   }
   
   .messages {
     width: 100%;
     min-height: 70vh;
     margin-bottom: 10px;
-    height: auto;
   }
 }
 p {
     min-height: 30px;
     min-width: 30px;
     background-color: #fff;
-    border: 1px solid #f5c9f5;
     border-radius: 10px;
-    box-shadow: 5px 6px 9px 2px rgba(202, 38, 120, 0.2);
     padding: 10px;
     margin-bottom: 5px;
+    border-radius: 15px 15px 15px 0px;
+}
+.material-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .my {
   min-height: 30px;
   min-width: 30px;
   background-color: #fff;
-  border: 1px solid #8ce58c;
   border-radius: 10px;
-  box-shadow: -5px 6px 9px 2px rgba(17, 138, 47, 0.2);
   padding: 10px;
   margin-bottom: 5px;
+  border-radius: 15px 15px 0px 15px;
+  background-color: rgb(180, 209, 203);
 }
 .message {
   display: flex;
